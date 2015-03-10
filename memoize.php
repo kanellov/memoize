@@ -2,6 +2,12 @@
 
 namespace Knlv;
 
+/**
+ * Memoizes function's return value
+ *
+ * @var callable $function
+ * @return callable
+ */
 function memoize($function)
 {
     if (!is_callable($function)) {
