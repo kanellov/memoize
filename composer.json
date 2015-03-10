@@ -1,0 +1,35 @@
+{
+    "name": "kanellov/memoize",
+    "description": "A simple memoization function",
+    "type": "library",
+    "keywords": [
+        "function", "memoize"
+    ],
+    "homepage": "https://github.com/kanellov/memoize",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vassilis Kanellopoulos",
+            "email": "contact@kanellov.com",
+            "homepage": "http://kanellov.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "contact@kanellov.com",
+        "issues": "https://github.com/kanellov/memoize/issues",
+        "source": "https://github.com/kanellov/memoize"
+    },
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "require-dev": {
+        "funkatron/funit": "0.6.0"
+    },
+    "autoload": {
+        "files": [
+            "memoize.php"
+        ]
+    }
+
+}
