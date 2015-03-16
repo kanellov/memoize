@@ -25,8 +25,10 @@ Install via composer:
 
 Add this line to your application’s index.php file:
 
-    <?php
-    require 'vendor/autoload.php';
+```php
+<?php
+require 'vendor/autoload.php';
+```
 
 ## System Requirements
 
@@ -34,38 +36,39 @@ You need PHP >= 5.3.0.
 
 ## Example
 
-    <?php
-    require 'vendor/autoload.php';
+```php
+<?php
+require 'vendor/autoload.php';
 
-    function benchmark($name, $runs, $function)
-    {
-        $start = microtime(true);
-        while ($runs--) {
-            $function();
-        }
-        $end = microtime(true);
-
-        return sprintf('%s: %s', $name, ($end - $start)) . PHP_EOL;
+function benchmark($name, $runs, $function)
+{
+    $start = microtime(true);
+    while ($runs--) {
+        $function();
     }
+    $end = microtime(true);
 
-    function heavyCalc($varA, $varB)
-    {
-        usleep(100);
-        return $varA + $varB;
-    }
+    return sprintf('%s: %s', $name, ($end - $start)) . PHP_EOL;
+}
 
-    $memoized = Knlv\memoize('heavyCalc');
+function heavyCalc($varA, $varB)
+{
+    usleep(100);
+    return $varA + $varB;
+}
 
-    echo benchmark('heavyCalc(1, 2)', 100, function() {
-        heavyCalc(1, 2);
-    });
+$memoized = Knlv\memoize('heavyCalc');
 
-    echo benchmark('Memoized heavyCalc(1, 2)', 100, function () use (&$memoized) {
-        $memoized(1, 2);
-    });
+echo benchmark('heavyCalc(1, 2)', 100, function() {
+    heavyCalc(1, 2);
+});
 
-    /*
-    heavyCalc(1, 2): 0.016629219055176
-    Memoized heavyCalc(1, 2): 0.001600980758667
-    */
+echo benchmark('Memoized heavyCalc(1, 2)', 100, function () use (&$memoized) {
+    $memoized(1, 2);
+});
 
+/*
+heavyCalc(1, 2): 0.016629219055176
+Memoized heavyCalc(1, 2): 0.001600980758667
+*/
+```
